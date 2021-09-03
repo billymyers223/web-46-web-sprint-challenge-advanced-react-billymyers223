@@ -13,6 +13,8 @@ test("renders without errors", () => {
 test("shows success message on submit with form details", async () => {
     render (<CheckoutForm/>)
     
+
+
     const firstInput = screen.getByLabelText(/First name:/i);
     userEvent.type(firstInput, 'Billy')
     const lastInput = screen.getByLabelText(/Last name:/i);
@@ -31,7 +33,21 @@ test("shows success message on submit with form details", async () => {
 
     await waitFor(() =>{
         const success = screen.getByTestId('successMessage')
+        const name = screen.queryByText(/Billy/i)
+        const last = screen.queryByText(/Myers/i)
+        const add = screen.queryByText(/1234 Drive Lane/i)
+        const city = screen.queryByText(/Houston/i)
+        const state = screen.queryByText(/Texas/i)
+        const zip = screen.queryByText(/77449/i)
+
+
         expect(success).toBeInTheDocument();
+        expect(name).toBeInTheDocument();
+        expect(last).toBeInTheDocument();
+        expect(add).toBeInTheDocument();
+        expect(city).toBeInTheDocument();
+        expect(state).toBeInTheDocument();
+        expect(zip).toBeInTheDocument();
     })
 
 });
