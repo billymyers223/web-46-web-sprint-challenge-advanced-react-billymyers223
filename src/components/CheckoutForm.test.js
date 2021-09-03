@@ -30,7 +30,6 @@ test("shows success message on submit with form details", async () => {
 
     const button = screen.getByRole('button');
     userEvent.click(button);
-
     await waitFor(() =>{
         const success = screen.getByTestId('successMessage')
         const name = screen.queryByText(/Billy/i)
