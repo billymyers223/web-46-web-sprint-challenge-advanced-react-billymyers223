@@ -1,6 +1,6 @@
 import React from "react";
 import MutationObserver from 'mutationobserver-shim';
-import { render, waitFor, screen } from "@testing-library/react";
+import { render, screen,  waitFor } from "@testing-library/react";
 import CheckoutForm from "./CheckoutForm";
 import userEvent from "@testing-library/user-event";
 
