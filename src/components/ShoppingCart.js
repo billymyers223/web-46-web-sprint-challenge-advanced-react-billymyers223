@@ -4,6 +4,7 @@ import React from "react";
 
 export default function ShoppingCart(props) {
   const total = props.cart.reduce((sum, d) => sum + d.price, 0);
+
   return (
     <div className="cart">
       {props.cart.map((plant) => (
@@ -25,7 +26,7 @@ export default function ShoppingCart(props) {
         <p className="total">Total: ${total}</p>
         <button
           className="checkout"
-          onClick={() => props.history.push("/checkout")}
+          onClick={() => {const ternary = (props.cart.length <1) ? console.log('hi'): props.history.push("/checkout") }}
         >
           Checkout
         </button>

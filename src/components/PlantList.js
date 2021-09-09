@@ -13,6 +13,7 @@ export default class PlantList extends Component {
   componentDidMount() {
     axios.get('http://localhost:3333/plants')
       .then(res => {
+        console.log(res.data)
         this.setState({
          ...this.state.plants,
           plants: res.data
@@ -38,7 +39,9 @@ export default class PlantList extends Component {
               </div>
               <button
                 className="plant-button"
-                onClick={() => this.props.addToCart(plant)}
+                onClick={() =>{ 
+                  this.props.addToCart(plant)
+                }}
               >
                 Add to cart
               </button>
